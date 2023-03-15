@@ -1,0 +1,159 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.2.4"
+    }
+}
+
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.2.4"
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '3.3.4'
+    restAssuredVersion = '5.0.1'
+    junitVersion = '5.8.2'
+    logbackVersion = '1.2.11'
+    lombokVersion = '1.18.24'
+    javaFakerVersion = '1.0.2'
+    mongoDriverVersion = '3.12.11'
+    sdkFireBaseVersion = '9.0.0'
+    commonsConfigVersion = '2.7'
+    log4jVersion = '2.18.0'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}",
+            "io.rest-assured:rest-assured:${restAssuredVersion}",
+            "net.serenity-bdd:serenity-junit5:${serenityVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
+            "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.junit.jupiter:junit-jupiter-engine:${junitVersion}",
+            "org.projectlombok:lombok:${lombokVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}",
+            "com.github.javafaker:javafaker:${javaFakerVersion}",
+            "org.apache.commons:commons-configuration2:${commonsConfigVersion}",
+            "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure = true
+
+serenity {
+    reports = ["single-page-html"]
+
+    // Specify the root package of any JUnit acceptance tests
+    testRoot = "serenityswag"
+
+    // Specify the root directory of any Cucumber feature files
+    requirementsDir = "src/test/resources/features"
+}
+
+test.finalizedBy(aggregate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//defaultTasks 'clean', 'test', 'aggregate'
+//
+//repositories {
+//    mavenLocal()
+//    jcenter()
+//}
+//
+//buildscript {
+//    repositories {
+//        mavenLocal()
+//        jcenter()
+//    }
+//    dependencies {
+//        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.0")
+//    }
+//}
+//
+//apply plugin: 'java'
+//apply plugin: 'eclipse'
+//apply plugin: 'idea'
+//apply plugin: 'net.serenity-bdd.aggregator'
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//
+//ext {
+//    slf4jVersion = '1.7.7'
+//    serenityCoreVersion = '2.2.13'
+//    serenityCucumberVersion = '2.2.5'
+//    junitVersion = '4.12'
+//    assertJVersion = '3.8.0'
+//    logbackVersion = '1.2.3'
+//}
+//
+//dependencies {
+//    compile "ch.qos.logback:logback-classic:${logbackVersion}"
+//
+//    testCompile "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+//            "net.serenity-bdd:serenity-cucumber5:${serenityCucumberVersion}",
+//            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+//            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+//            "junit:junit:${junitVersion}",
+//            "org.assertj:assertj-core:${assertJVersion}"
+//}
+//
+//test {
+//    testLogging.showStandardStreams = true
+//    systemProperties System.getProperties()
+//}
+//
+//gradle.startParameter.continueOnFailure = true
+//
+//test.finalizedBy(aggregate)
