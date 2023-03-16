@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
  */
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(features = "src/test/resources/features",
-        glue = {"co/com/demo/magento/stepsDefinitions",
-                "co/com/demo/magento/hooks"},
+        glue = {"com/magento/stepsDefinitions",
+                "com/magento/hooks"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
 tags = "@WebApp"
 )
