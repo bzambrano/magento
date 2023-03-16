@@ -1,6 +1,6 @@
 package com.magento.hooks;
 
-import com.magento.helpers.ToRemenber;
+import com.magento.helpers.ToRemember;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import net.serenitybdd.core.Serenity;
@@ -31,8 +31,8 @@ public class SetupOnlineCast {
      */
     @Before("@WebApp")
     public void setupEnvironmentVariables() {
-        theActorInTheSpotlight().remember(ToRemenber.URL_BASE.name(), URL_BASE);
-        theActorInTheSpotlight().remember(ToRemenber.URL_REGISTER.name(), URL_REGISTER);
+        theActorInTheSpotlight().remember(ToRemember.URL_BASE.name(), URL_BASE);
+        theActorInTheSpotlight().remember(ToRemember.URL_REGISTER.name(), URL_REGISTER);
     }
 
     @After("@WebApp")
