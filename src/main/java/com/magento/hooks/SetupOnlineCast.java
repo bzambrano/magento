@@ -22,6 +22,9 @@ public class SetupOnlineCast {
     private final String URL_BASE = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.base");
     private final String URL_REGISTER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.register");
 
+    private final String EMAIL_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.email");
+    private final String PASSWORD_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.password");
+
 
     /**
      * Sets up the environment variables for the online cast of the Magento demo application. Retrieves
@@ -33,6 +36,9 @@ public class SetupOnlineCast {
     public void setupEnvironmentVariables() {
         theActorInTheSpotlight().remember(ToRemember.URL_BASE.name(), URL_BASE);
         theActorInTheSpotlight().remember(ToRemember.URL_REGISTER.name(), URL_REGISTER);
+
+        theActorInTheSpotlight().remember(ToRemember.USER_EMAIL.name(), EMAIL_USER);
+        theActorInTheSpotlight().remember(ToRemember.USER_PASSWORD.name(), PASSWORD_USER);
     }
 
     @After("@WebApp")
