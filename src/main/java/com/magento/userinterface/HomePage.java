@@ -16,4 +16,8 @@ public class HomePage extends PageObject {
     public static final Target GRAPHIC_CONTENT  = Target.the(
                     "home page graphic content")
             .located(By.cssSelector("#maincontent"));
+
+    public static final Target MESSAGE_ERROR_LOGIN  = Target.the(
+                    "home page message error login")
+            .located(By.cssSelector("#maincontent"));
 }
