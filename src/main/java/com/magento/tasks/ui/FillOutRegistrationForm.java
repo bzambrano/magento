@@ -2,7 +2,7 @@ package com.magento.tasks.ui;
 
 import com.magento.helpers.ToRemember;
 import com.magento.helpers.models.UserAccount;
-import com.magento.userinterface.RegistrationForm;
+import com.magento.userinterface.RegistrationFormPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -26,11 +26,11 @@ public class FillOutRegistrationForm implements Task {
         userAccount.setDataUser();
         actor.remember(ToRemember.USER_ACCOUNT.name(), userAccount);
         actor.attemptsTo(
-                Enter.theValue(userAccount.getFirstName()).into(RegistrationForm.INPUT_FIRST_NAME),
-                Enter.theValue(userAccount.getLastName()).into(RegistrationForm.INPUT_LAST_NAME),
-                Enter.theValue(userAccount.getEmail()).into(RegistrationForm.INPUT_EMAIL),
-                Enter.theValue(userAccount.getPassword()).into(RegistrationForm.INPUT_PASSWORD),
-                Enter.theValue(userAccount.getPassword()).into(RegistrationForm.INPUT_PASSWORD_CONFIRMATION)
+                Enter.theValue(userAccount.getFirstName()).into(RegistrationFormPage.INPUT_FIRST_NAME),
+                Enter.theValue(userAccount.getLastName()).into(RegistrationFormPage.INPUT_LAST_NAME),
+                Enter.theValue(userAccount.getEmail()).into(RegistrationFormPage.INPUT_EMAIL),
+                Enter.theValue(userAccount.getPassword()).into(RegistrationFormPage.INPUT_PASSWORD),
+                Enter.theValue(userAccount.getPassword()).into(RegistrationFormPage.INPUT_PASSWORD_CONFIRMATION)
         );
     }
 }

@@ -8,7 +8,7 @@ import com.magento.tasks.Login;
 import com.magento.tasks.Sign;
 import com.magento.tasks.ui.FillOutRegistrationForm;
 import com.magento.tasks.ui.Navigate;
-import com.magento.userinterface.RegistrationForm;
+import com.magento.userinterface.RegistrationFormPage;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -41,7 +41,7 @@ public class StepsDefinitionsCreateAccount {
     public void diligencia_los_campos_requeridos_en_el_formulario_y_envia_la_infomacion() {
         theActorInTheSpotlight().attemptsTo(
                 FillOutRegistrationForm.withRandomValues(),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
         );
     }
 
@@ -99,7 +99,7 @@ public class StepsDefinitionsCreateAccount {
     @Cuando("se intenta crear una cuenta con campos vacios")
     public void ingresaValoresIncorrectosEnLosCamposRequeridos() {
         theActorInTheSpotlight().attemptsTo(
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
         );
     }
 
@@ -108,15 +108,15 @@ public class StepsDefinitionsCreateAccount {
         String messageRequiredField = "This is a required field.";
 
         theActorInTheSpotlight().should(
-                seeThat(IsAlert.inTheField(RegistrationForm.ALERT_FIELD_INPUT_FIRST_NAME),
+                seeThat(IsAlert.inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_FIRST_NAME),
                         equalTo(messageRequiredField)
-                ), seeThat(IsAlert.inTheField(RegistrationForm.ALERT_FIELD_INPUT_LAST_NAME),
+                ), seeThat(IsAlert.inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_LAST_NAME),
                         equalTo(messageRequiredField)
-                ), seeThat(IsAlert.inTheField(RegistrationForm.ALERT_FIELD_INPUT_EMAIL),
+                ), seeThat(IsAlert.inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_EMAIL),
                         equalTo(messageRequiredField)
-                ), seeThat(IsAlert.inTheField(RegistrationForm.ALERT_FIELD_INPUT_PASSWORD),
+                ), seeThat(IsAlert.inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_PASSWORD),
                         equalTo(messageRequiredField)
-                ), seeThat(IsAlert.inTheField(RegistrationForm.ALERT_FIELD_INPUT_PASSWORD_CONFIRMATION),
+                ), seeThat(IsAlert.inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_PASSWORD_CONFIRMATION),
                         equalTo(messageRequiredField)
                 )
         );
@@ -128,52 +128,52 @@ public class StepsDefinitionsCreateAccount {
         userAccount.setDataUser();
 
         theActorInTheSpotlight().attemptsTo(
-                Fill.field(RegistrationForm.INPUT_FIRST_NAME, userAccount.getFirstName()),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT));
+                Fill.field(RegistrationFormPage.INPUT_FIRST_NAME, userAccount.getFirstName()),
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT));
 
         theActorInTheSpotlight().should(
                 seeThat(IsAlertPresent
-                                .inTheField(RegistrationForm.ALERT_FIELD_INPUT_FIRST_NAME),
+                                .inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_FIRST_NAME),
                         equalTo(false))
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Fill.field(RegistrationForm.INPUT_LAST_NAME, userAccount.getLastName()),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Fill.field(RegistrationFormPage.INPUT_LAST_NAME, userAccount.getLastName()),
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
 
         );
 
         theActorInTheSpotlight().should(
                 seeThat(IsAlertPresent
-                                .inTheField(RegistrationForm.ALERT_FIELD_INPUT_LAST_NAME),
+                                .inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_LAST_NAME),
                         equalTo(false))
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Fill.field(RegistrationForm.INPUT_EMAIL, userAccount.getEmail()),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Fill.field(RegistrationFormPage.INPUT_EMAIL, userAccount.getEmail()),
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
         );
         theActorInTheSpotlight().should(
                 seeThat(IsAlertPresent
-                                .inTheField(RegistrationForm.ALERT_FIELD_INPUT_EMAIL),
+                                .inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_EMAIL),
                         equalTo(false)
                 )
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Fill.field(RegistrationForm.INPUT_PASSWORD, userAccount.getPassword()),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Fill.field(RegistrationFormPage.INPUT_PASSWORD, userAccount.getPassword()),
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
         );
         theActorInTheSpotlight().should(
                 seeThat(IsAlertPresent
-                                .inTheField(RegistrationForm.ALERT_FIELD_INPUT_EMAIL),
+                                .inTheField(RegistrationFormPage.ALERT_FIELD_INPUT_EMAIL),
                         equalTo(false)
                 )
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Fill.field(RegistrationForm.INPUT_PASSWORD_CONFIRMATION, userAccount.getPassword()),
-                Click.on(RegistrationForm.BTN_CREATE_ACCOUNT)
+                Fill.field(RegistrationFormPage.INPUT_PASSWORD_CONFIRMATION, userAccount.getPassword()),
+                Click.on(RegistrationFormPage.BTN_CREATE_ACCOUNT)
         );
         theActorInTheSpotlight().should(
                 seeThat(AccountInformation.value(),
