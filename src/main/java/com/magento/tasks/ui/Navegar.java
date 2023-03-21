@@ -7,16 +7,16 @@ import net.serenitybdd.screenplay.actions.Open;
 /**
  * file packageco.com.demo.magento.tasks.ui
  */
-public class Navigate implements Task {
+public class Navegar implements Task {
 
     private final String KEY_CALLED_BY_ACTOR;
 
-    public Navigate(String keyCalledByActor) {
+    public Navegar(String keyCalledByActor) {
         this.KEY_CALLED_BY_ACTOR = keyCalledByActor;
     }
 
-    public static Navigate webPage(String siteUrl){
-        return new Navigate(siteUrl);
+    public static Navegar paginaWeb(String urlSitio){
+        return new Navegar(urlSitio);
     }
 
     @Override

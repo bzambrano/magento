@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(features = "src/test/resources/features",
-        glue = {"com/magento/stepsDefinitions",
+        glue = {"com/magento/definitions",
                 "com/magento/hooks"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         tags = "@Login"

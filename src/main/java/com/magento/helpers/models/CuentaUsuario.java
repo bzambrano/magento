@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class UserAccount {
+public class CuentaUsuario {
     private String firstName;
     private String lastName;
     private String signUpForNewsletter;

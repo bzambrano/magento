@@ -22,13 +22,13 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
  * file packagecom.magento.tasks
  */
 @RequiredArgsConstructor
-public class AddProducts implements Task {
+public class AgregarProductos implements Task {
 
     @NonNull
     private List<Producto> listaProductos;
 
-    public static AddProducts toShoppingCart(List<Producto> listaProductos) {
-        return new AddProducts(listaProductos);
+    public static AgregarProductos alCarritoCompras(List<Producto> listaProductos) {
+        return new AgregarProductos(listaProductos);
     }
 
 

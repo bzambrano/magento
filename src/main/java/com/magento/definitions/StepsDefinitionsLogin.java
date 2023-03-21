@@ -1,11 +1,11 @@
-package com.magento.stepsDefinitions;
+package com.magento.definitions;
 
-import com.magento.helpers.ToRemember;
-import com.magento.helpers.models.UserAccount;
+import com.magento.helpers.Recordar;
+import com.magento.helpers.models.CuentaUsuario;
 import com.magento.questions.GetUserValid;
 import com.magento.questions.TheResponseLogin;
 import com.magento.tasks.Login;
-import com.magento.tasks.ui.Navigate;
+import com.magento.tasks.ui.Navegar;
 import com.magento.userinterface.HeaderPage;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -22,25 +22,25 @@ import static org.hamcrest.Matchers.equalTo;
  */
 public class StepsDefinitionsLogin {
 
-    private UserAccount userAccount = new UserAccount();
+    private CuentaUsuario cuentaUsuario = new CuentaUsuario();
     private String typeLogin;
 
     @Dado("Que {actor} cuanto con usuario y contrasena {}")
     public void queCamiloCuantoConUsuarioYContrasenaNoValidos(Actor actor, String typeLogin) {
         this.typeLogin = typeLogin;
-        actor.remember(ToRemember.TYPE_LOGIN.name(), typeLogin);
-        String urlHome = actor.recall(ToRemember.URL_BASE.name());
+        actor.remember(Recordar.TIPO_LOGIN.name(), typeLogin);
+        String urlHome = actor.recall(Recordar.URL_BASE.name());
         theActorInTheSpotlight().attemptsTo(
-                Navigate.webPage(urlHome),
+                Navegar.paginaWeb(urlHome),
                 Click.on(HeaderPage.ANCHOR_SIGN_IN)
         );
     }
 
     @Cuando("diligencia los campos del formulario e inicio sesion")
     public void diligenciaLosCamposDelFormularioEInicioSesion() {
-        userAccount = theActorInTheSpotlight().asksFor(GetUserValid.value(userAccount));
+        cuentaUsuario = theActorInTheSpotlight().asksFor(GetUserValid.value(cuentaUsuario));
         theActorInTheSpotlight().attemptsTo(
-                Login.by(userAccount)
+                Login.by(cuentaUsuario)
         );
     }
 

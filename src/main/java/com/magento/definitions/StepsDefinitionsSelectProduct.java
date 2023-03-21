@@ -1,11 +1,11 @@
-package com.magento.stepsDefinitions;
+package com.magento.definitions;
 
 import com.magento.helpers.models.Producto;
 import com.magento.questions.ProductosAgregado;
 import com.magento.questions.UrlBySection;
-import com.magento.tasks.AddProducts;
+import com.magento.tasks.AgregarProductos;
 import com.magento.tasks.Ingresar;
-import com.magento.tasks.ui.Navigate;
+import com.magento.tasks.ui.Navegar;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -26,9 +26,9 @@ public class StepsDefinitionsSelectProduct {
 
     @Dado("que {actor} se encuentra en la seccion de {}")
     public void quePedroSeEncuentraEnLaSeccionDeTeesWomen(Actor actor, String section) {
-        String sectionUrl = actor.asksFor(UrlBySection.value(section));
+        String urlSesion = actor.asksFor(UrlBySection.value(section));
         actor.attemptsTo(
-                Navigate.webPage(sectionUrl)
+                Navegar.paginaWeb(urlSesion)
         );
     }
 
@@ -36,7 +36,7 @@ public class StepsDefinitionsSelectProduct {
     public void seleccionaLosProductosDesireeFitnessTeeTiffanyFitnessTeeGabrielleMicroSleeveTop(String nombresProductos) {
         listaProductos = Producto.obtenerListasPor(nombresProductos);
         theActorInTheSpotlight().attemptsTo(
-                AddProducts.toShoppingCart(listaProductos)
+                AgregarProductos.alCarritoCompras(listaProductos)
         );
     }
 

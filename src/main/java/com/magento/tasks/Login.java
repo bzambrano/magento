@@ -1,6 +1,6 @@
 package com.magento.tasks;
 
-import com.magento.helpers.models.UserAccount;
+import com.magento.helpers.models.CuentaUsuario;
 import com.magento.userinterface.HeaderPage;
 import com.magento.userinterface.LoginPage;
 import lombok.AllArgsConstructor;
@@ -19,10 +19,10 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClic
 @AllArgsConstructor
 public class Login implements Task {
 
-    private UserAccount userAccount;
+    private CuentaUsuario cuentaUsuario;
 
-    public static Login by(UserAccount userAccount) {
-        return instrumented(Login.class,userAccount) ;
+    public static Login by(CuentaUsuario cuentaUsuario) {
+        return instrumented(Login.class, cuentaUsuario) ;
     }
 
     @Override
@@ -31,8 +31,8 @@ public class Login implements Task {
         actor.attemptsTo(
                 WaitUntil.the(HeaderPage.ANCHOR_SIGN_IN, isClickable()),
                 Click.on(HeaderPage.ANCHOR_SIGN_IN),
-                Enter.theValue(this.userAccount.getEmail()).into(LoginPage.INPUT_EMAIL),
-                Enter.theValue(this.userAccount.getPassword()).into(LoginPage.INPUT_PASSWORD),
+                Enter.theValue(this.cuentaUsuario.getEmail()).into(LoginPage.INPUT_EMAIL),
+                Enter.theValue(this.cuentaUsuario.getPassword()).into(LoginPage.INPUT_PASSWORD),
                 Click.on(LoginPage.BTN_SIGN_IN)
         );
     }
