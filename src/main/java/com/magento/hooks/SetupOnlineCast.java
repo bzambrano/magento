@@ -1,6 +1,6 @@
 package com.magento.hooks;
 
-import com.magento.helpers.ToRemember;
+import com.magento.helpers.Recordar;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import net.serenitybdd.core.Serenity;
@@ -22,6 +22,10 @@ public class SetupOnlineCast {
     private final String URL_BASE = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.base");
     private final String URL_REGISTER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.register");
 
+    private final String URL_WOMEN_TEES = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.women.tees");
+    private final String URL_MEN_TEES = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.men.tees");
+    private final String URL_GEAR_BAGS = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.gear.bags");
+
     private final String EMAIL_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.email");
     private final String PASSWORD_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.password");
 
@@ -34,11 +38,15 @@ public class SetupOnlineCast {
      */
     @Before("@WebApp")
     public void setupEnvironmentVariables() {
-        theActorInTheSpotlight().remember(ToRemember.URL_BASE.name(), URL_BASE);
-        theActorInTheSpotlight().remember(ToRemember.URL_REGISTER.name(), URL_REGISTER);
+        theActorInTheSpotlight().remember(Recordar.URL_BASE.name(), URL_BASE);
+        theActorInTheSpotlight().remember(Recordar.URL_REGISTRO.name(), URL_REGISTER);
 
-        theActorInTheSpotlight().remember(ToRemember.USER_EMAIL.name(), EMAIL_USER);
-        theActorInTheSpotlight().remember(ToRemember.USER_PASSWORD.name(), PASSWORD_USER);
+        theActorInTheSpotlight().remember(Recordar.URL_MUJER_CAMISETAS.name(), URL_WOMEN_TEES);
+        theActorInTheSpotlight().remember(Recordar.URL_HOMBRE_CAMISETAS.name(), URL_MEN_TEES);
+        theActorInTheSpotlight().remember(Recordar.URL_EQUIPO_BOLSOS.name(), URL_GEAR_BAGS);
+
+        theActorInTheSpotlight().remember(Recordar.EMAIL_USUARIO.name(), EMAIL_USER);
+        theActorInTheSpotlight().remember(Recordar.PASSWORD_USUARIO.name(), PASSWORD_USER);
     }
 
     @After("@WebApp")

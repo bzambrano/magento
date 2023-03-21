@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 /**
  * file packageco.com.demo.magento.ui
  */
-public class RegistrationFormPage extends PageObject {
+public class PaginaFormularioInscripcion extends PageObject {
 
     public static final Target INPUT_FIRST_NAME = Target.the(
             "input firstName").located(By.cssSelector("#firstname"));

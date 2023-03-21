@@ -7,12 +7,13 @@ import org.junit.runner.RunWith;
 /**
  * file packagerunners.ui
  */
+
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(features = "src/test/resources/features",
         glue = {"com/magento/definitions",
                 "com/magento/hooks"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@Login"
+        tags = "@SelectProduct"
 )
-public class TestsRunnerLogin {
+public class TestsRunnerSelectProduct {
 }
