@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * file packagecom.magento.stepsDefinitions
  */
-public class StepsDefinitionsSelectProduct {
+public class SeleccionarProductos {
     private List<Producto> listaProductos;
 
     @Dado("que {actor} se encuentra en la seccion de {}")
