@@ -5,7 +5,7 @@ import com.magento.interactions.AddToShoppingCart;
 import com.magento.interactions.SelectAProduct;
 import com.magento.interactions.SelectColor;
 import com.magento.interactions.SelectSize;
-import com.magento.questions.GetElement;
+import com.magento.questions.ObtenerElementoWeb;
 import com.magento.questions.ProductIsAddedMessage;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class AgregarProductos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         for (Producto producto : listaProductos) {
-            Target webElementProduct = actor.asksFor(GetElement.byProductName(producto.getNombre()));
+            Target webElementProduct = actor.asksFor(ObtenerElementoWeb.porNombreProducto(producto.getNombre()));
             actor.attemptsTo(
                     SelectAProduct.byElement(webElementProduct),
                     SelectSize.theProduct(),
