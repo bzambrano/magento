@@ -21,4 +21,8 @@ public class HeaderPage extends PageObject {
                     "button sing out")
             .located(By.xpath("(//a[contains(text(),'Sign Out ')])[1]"));
 
+    public static final Target BTN_CARRO_COMPRAS = Target.the(
+                    "Botón del carro de compras")
+            .located(By.cssSelector("div.header a.showcart"));
+
 }
