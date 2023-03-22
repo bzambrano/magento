@@ -25,6 +25,7 @@ public class SetupOnlineCast {
     private final String URL_WOMEN_TEES = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.women.tees");
     private final String URL_MEN_TEES = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.men.tees");
     private final String URL_GEAR_BAGS = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.gear.bags");
+    private final String URL_EQUIPO_ENTRENAMIENTO = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("url.equipo.entrenamiento");
 
     private final String EMAIL_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.email");
     private final String PASSWORD_USER = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("user.password");
@@ -44,6 +45,7 @@ public class SetupOnlineCast {
         theActorInTheSpotlight().remember(Recordar.URL_MUJER_CAMISETAS.name(), URL_WOMEN_TEES);
         theActorInTheSpotlight().remember(Recordar.URL_HOMBRE_CAMISETAS.name(), URL_MEN_TEES);
         theActorInTheSpotlight().remember(Recordar.URL_EQUIPO_BOLSOS.name(), URL_GEAR_BAGS);
+        theActorInTheSpotlight().remember(Recordar.URL_EQUIPO_EQUIPO_ENTRENAMIENTO.name(),URL_EQUIPO_ENTRENAMIENTO );
 
         theActorInTheSpotlight().remember(Recordar.EMAIL_USUARIO.name(), EMAIL_USER);
         theActorInTheSpotlight().remember(Recordar.PASSWORD_USUARIO.name(), PASSWORD_USER);
