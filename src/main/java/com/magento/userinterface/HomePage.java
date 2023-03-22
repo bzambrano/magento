@@ -20,4 +20,17 @@ public class HomePage extends PageObject {
     public static final Target MESSAGE_ERROR_LOGIN  = Target.the(
                     "home page message error login")
             .located(By.cssSelector("#maincontent"));
+
+    public static final Target BARRA_MENU_WOMEN   = Target.the(
+                    "barra de menu opcion Women")
+            .locatedBy("//span[contains(text(),'Women')]//ancestor::a");
+
+
+    public static final Target BARRA_MENU_MEN   = Target.the(
+                    "barra de menu opcion Men")
+            .locatedBy("//span[contains(text(),'Men')]//ancestor::a");
+
+
+
+
 }
