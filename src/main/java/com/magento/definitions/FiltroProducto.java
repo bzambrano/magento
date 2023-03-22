@@ -51,15 +51,16 @@ public class FiltroProducto {
         List<String> listaProductosPantalla =
                 theActorInTheSpotlight().asksFor(NombresProductosDisponibles.enPagina());
         List<Producto> listaProductos = Producto.obtenerListasPor(listaProductosPantalla);
+        List<Producto> listaProductosAgregadosCarroCompras = DestallesProducto.obtenerSubLista(listaProductos,numeroDeProductos);
 
         theActorInTheSpotlight().attemptsTo(
-                AgregarProductos.alCarritoCompras(DestallesProducto.obtenerSubLista(listaProductos,numeroDeProductos)),
+                AgregarProductos.alCarritoCompras(listaProductosAgregadosCarroCompras),
                 Ingresar.CarroCompras()
         );
 
         theActorInTheSpotlight().should(
                 seeThat(
-                        ProductosAgregado.enCarritoCompras(listaProductos), equalTo(true)
+                        ProductosAgregado.enCarritoCompras(listaProductosAgregadosCarroCompras), equalTo(true)
                 )
         );
     }
