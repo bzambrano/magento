@@ -5,6 +5,8 @@ package com.magento.helpers;
  */
 public enum Recordar {
     URL_BASE,
+
+    URL_EQUIPO_EQUIPO_ENTRENAMIENTO,
     URL_REGISTRO,
     URL_MUJER_CAMISETAS,
     URL_HOMBRE_CAMISETAS,
