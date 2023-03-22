@@ -25,4 +25,8 @@ public class ProductPage extends PageObject  {
                     "the message susses ")
             .located(By.cssSelector("div[data-ui-id='message-success'] div"));
 
+    public static final Target BTN_PERSONALIZAR_AGREGAR_CARRITO = Target.the(
+                    "the message susses ")
+            .locatedBy(("#bundle-slide"));
+
 }

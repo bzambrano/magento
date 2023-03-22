@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ProductosAgregado implements Question<Boolean> {
 
-    private static final String TEXTO_LOCALIZADOR = "//tbody[@class='cart item']//descendant::a[contains(text(),'%s')]";
+    private static final String TEXTO_LOCALIZADOR = "//tbody[@class='cart item']//descendant::a[contains(text(),\"%s\")]";
     private List<Producto> listaProductos;
 
     public static ProductosAgregado enCarritoCompras(List<Producto> listaProductos) {

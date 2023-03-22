@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 @AllArgsConstructor
 public class ObtenerElementoWeb implements Question<Target> {
 
-    private static final String TEXT_LOCATOR = "//a[contains(text(),'%s')]";
+    private static final String TEXT_LOCATOR = "//div[@class='product details product-item-details']//a[contains(text(),\"%s\")]";
     private String nameProduct;
 
     public static ObtenerElementoWeb porNombreProducto(String nameProduct) {
@@ -22,7 +22,7 @@ public class ObtenerElementoWeb implements Question<Target> {
     @Override
     public Target answeredBy(Actor actor) {
         String byLocator = String.format(TEXT_LOCATOR, nameProduct);
-         return Target.the(String.format("el elemento web del producto %s", nameProduct))
-                        .located(By.xpath(byLocator));
+        return Target.the(String.format("el elemento web del producto %s", nameProduct))
+                .located(By.xpath(byLocator));
     }
 }
